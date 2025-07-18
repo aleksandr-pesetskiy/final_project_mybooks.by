@@ -1,4 +1,4 @@
-package by.mybooks.api.loginForm;
+package by.mybooks.api.authorizationForm;
 
 import by.mybooks.api.expectedMessages.ExpectedMessages;
 import by.mybooks.utils.Utils;
@@ -6,11 +6,11 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class LoginForm {
+public class AuthorizationForm {
 
     private final Response response;
 
-    public LoginForm(String email, String password) {
+    public AuthorizationForm(String email, String password) {
         response = getResponse(email, password);
     }
 
