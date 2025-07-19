@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RegistrationFormTest {
+public class RegistrationFormTestApi {
 
     Faker faker = new Faker();
 

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AuthorizationFormTest {
+public class AuthorizationFormTestApi {
 
     Faker faker = new Faker();
 
