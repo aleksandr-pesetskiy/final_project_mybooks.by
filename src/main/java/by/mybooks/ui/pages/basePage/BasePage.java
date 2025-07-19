@@ -1,4 +1,4 @@
-package by.mybooks.ui;
+package by.mybooks.ui.pages.basePage;
 
 import by.mybooks.ui.expectedMessages.ExpectedMessages;
 import org.apache.logging.log4j.LogManager;
@@ -28,11 +28,11 @@ public class BasePage {
 
     public void clickButtonAcceptCookie() {
         logger.info("Принятие Cookie");
-        driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_ACCEPT_COOKIE)).click();
+        driver.findElement(By.xpath(BasePageLocator.BUTTON_ACCEPT_COOKIE)).click();
     }
 
     public void clickButtonCabinet() {
         logger.info("Открытие формы авторизации");
-        driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_CABINET)).click();
+        driver.findElement(By.xpath(BasePageLocator.BUTTON_CABINET)).click();
     }
 }

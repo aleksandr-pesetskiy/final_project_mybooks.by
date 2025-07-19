@@ -1,12 +1,13 @@
 package by.mybooks.ui;
 
 import by.mybooks.ui.expectedMessages.ExpectedMessages;
+import by.mybooks.ui.pages.authorizationForm.AuthorizationFormPage;
+import by.mybooks.ui.pages.basePage.BasePage;
+import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.*;
 import by.mybooks.ui.driver.Driver;
-import by.mybooks.ui.pages.authorizationForm.AuthorizationFormPage;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 

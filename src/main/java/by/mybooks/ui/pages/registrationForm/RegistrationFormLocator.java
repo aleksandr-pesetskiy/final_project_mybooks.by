@@ -1,6 +1,6 @@
-package by.mybooks.ui.pages.authorizationForm;
+package by.mybooks.ui.pages.registrationForm;
 
-public class AuthorizationFormLocator {
+public class RegistrationFormLocator {
 
     public static final String FIELD_LOGIN_PLACEHOLDER = "//div[@id='enter']//div[@class='ok-form-row -input-special data-input-check']/div";
     public static final String FIELD_PASSWORD_PLACEHOLDER = "//div[@id='enter']//div[@class='ok-form-row -input-special data-input-check']/span/div";
