@@ -81,4 +81,40 @@ public class RegistrationFormPage extends BasePage {
         logger.info("Подтверждение alert");
         return alertText;
     }
+
+    public String getColorLineLoginOk() {
+        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_LOGIN_OK)).getCssValue("color");
+        logger.info("Цвет линии под email без ошибки в RGB: {}", colorLine);
+        return colorLine;
+    }
+
+    public String getColorLineLoginError() {
+        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_LOGIN_ERROR)).getCssValue("color");
+        logger.info("Цвет линии под email с ошибкой в RGB: {}", colorLine);
+        return colorLine;
+    }
+
+    public String getColorLinePasswordOk() {
+        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_PASSWORD_OK)).getCssValue("color");
+        logger.info("Цвет линии под password без ошибки в RGB: {}", colorLine);
+        return colorLine;
+    }
+
+    public String getColorLinePasswordError() {
+        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_PASSWORD_ERROR)).getCssValue("color");
+        logger.info("Цвет линии под password с ошибкой в RGB: {}", colorLine);
+        return colorLine;
+    }
+
+    public String getColorLineCaptchaOk() {
+        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_CAPTCHA_OK)).getCssValue("color");
+        logger.info("Цвет линии под captcha без ошибки в RGB: {}", colorLine);
+        return colorLine;
+    }
+
+    public String getColorLineCaptchaError() {
+        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_CAPTCHA_ERROR)).getCssValue("color");
+        logger.info("Цвет линии под captcha с ошибкой в RGB: {}", colorLine);
+        return colorLine;
+    }
 }

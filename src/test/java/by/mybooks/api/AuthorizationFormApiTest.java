@@ -15,8 +15,8 @@ public class AuthorizationFormApiTest {
     Faker faker = new Faker();
 
     @Test
-    @DisplayName("Login with wrong email")
-    public void testLoginWithWrongEmail() {
+    @DisplayName("Check authorization with wrong email")
+    public void testLAuthorizationWithWrongEmail() {
         AuthorizationForm authorizationForm = new AuthorizationForm(faker.internet().emailAddress(), faker.internet().password());
 
         assertAll(
@@ -27,8 +27,8 @@ public class AuthorizationFormApiTest {
     }
 
     @Test
-    @DisplayName("Login with wrong password")
-    public void testLoginWithWrongPassword() {
+    @DisplayName("Check authorization with wrong password")
+    public void testAuthorizationWithWrongPassword() {
         AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.EMAIL_TRUE, faker.internet().password());
 
         assertAll(
@@ -39,8 +39,8 @@ public class AuthorizationFormApiTest {
     }
 
     @Test
-    @DisplayName("Login with large email")
-    public void testLoginWithLargeEmail() {
+    @DisplayName("Check authorization with large email")
+    public void testAuthorizationWithLargeEmail() {
         AuthorizationForm authorizationForm = new AuthorizationForm(Utils.generateLargeEmail(), faker.internet().password());
 
         assertAll(
@@ -51,8 +51,8 @@ public class AuthorizationFormApiTest {
     }
 
     @Test
-    @DisplayName("Login with large password")
-    public void testLoginWithLargePassword() {
+    @DisplayName("Check authorization with large password")
+    public void testAuthorizationWithLargePassword() {
         AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.EMAIL_TRUE, Utils.generateLargePassword());
 
         assertAll(
@@ -63,8 +63,8 @@ public class AuthorizationFormApiTest {
     }
 
     @Test
-    @DisplayName("Login with empty email")
-    public void testLoginWithEmptyEmail() {
+    @DisplayName("Check authorization with empty email")
+    public void testAuthorizationWithEmptyEmail() {
         AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.FIELD_EMPTY, faker.internet().password());
 
         assertAll(
@@ -75,8 +75,8 @@ public class AuthorizationFormApiTest {
     }
 
     @Test
-    @DisplayName("Login with empty password")
-    public void testLoginWithEmptyPassword() {
+    @DisplayName("Check authorization with empty password")
+    public void testAuthorizationWithEmptyPassword() {
         AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.EMAIL_TRUE, ExpectedMessages.FIELD_EMPTY);
 
         assertAll(
@@ -87,8 +87,8 @@ public class AuthorizationFormApiTest {
     }
 
     @Test
-    @DisplayName("Login with empty email and password")
-    public void testLoginWithEmptyEmailAndPassword() {
+    @DisplayName("Check authorization with empty email and password")
+    public void testAuthorizationWithEmptyEmailAndPassword() {
         AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.FIELD_EMPTY, ExpectedMessages.FIELD_EMPTY);
 
         assertAll(

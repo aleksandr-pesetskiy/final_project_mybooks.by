@@ -50,7 +50,7 @@ public class AuthorizationFormPage extends BasePage {
         driver.findElement(By.xpath(AuthorizationFormLocator.FIELD_INPUT_PASSWORD)).sendKeys(password);
     }
 
-    public String getColorLineLoginOK() {
+    public String getColorLineLoginOk() {
         String colorLine = driver.findElement(By.xpath(AuthorizationFormLocator.LINE_UNDER_LOGIN_OK)).getCssValue("color");
         logger.info("Цвет линии под email без ошибки в RGB: {}", colorLine);
         return colorLine;

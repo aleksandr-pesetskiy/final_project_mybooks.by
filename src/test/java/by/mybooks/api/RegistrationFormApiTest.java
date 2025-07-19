@@ -8,16 +8,14 @@ import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RegistrationFormApiTest {
 
     Faker faker = new Faker();
 
     @Test
-    @DisplayName("Registration with email exists")
+    @DisplayName("Check registration with email exists")
     public void testRegistrationWithEmailExists() {
         RegistrationForm registrationForm = new RegistrationForm(ExpectedMessages.EMAIL_TRUE, faker.internet().password(), Utils.generateCaptcha());
 
@@ -30,7 +28,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with small password")
+    @DisplayName("Check registration with small password")
     public void testRegistrationWithSmallPassword() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), Utils.generateSmallPassword(), Utils.generateCaptcha());
 
@@ -43,7 +41,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with large password")
+    @DisplayName("Check registration with large password")
     public void testRegistrationWithLargePassword() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), Utils.generateLargePassword(), Utils.generateCaptcha());
 
@@ -56,7 +54,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with not match password")
+    @DisplayName("Check registration with not match password")
     public void testRegistrationWithNotMatchPassword() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), faker.internet().password(), faker.internet().password(), Utils.generateCaptcha());
 
@@ -69,7 +67,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with empty email")
+    @DisplayName("Check registration with empty email")
     public void testRegistrationWithEmptyEmail() {
         RegistrationForm registrationForm = new RegistrationForm(ExpectedMessages.FIELD_EMPTY, faker.internet().password(), Utils.generateCaptcha());
 
@@ -82,7 +80,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with empty registration password")
+    @DisplayName("Check registration with empty registration password")
     public void testRegistrationWithEmptyRegPassword() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), ExpectedMessages.FIELD_EMPTY, faker.internet().password(), Utils.generateCaptcha());
 
@@ -95,7 +93,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with empty confirmation password")
+    @DisplayName("Check registration with empty confirmation password")
     public void testRegistrationWithEmptyConPassword() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), faker.internet().password(), ExpectedMessages.FIELD_EMPTY, Utils.generateCaptcha());
 
@@ -108,7 +106,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with empty password")
+    @DisplayName("Check registration with empty password")
     public void testRegistrationWithEmptyPassword() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), ExpectedMessages.FIELD_EMPTY, Utils.generateCaptcha());
 
@@ -121,7 +119,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with empty captcha")
+    @DisplayName("Check registration with empty captcha")
     public void testRegistrationWithEmptyCaptcha() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), faker.internet().password(), ExpectedMessages.FIELD_EMPTY);
 
@@ -133,7 +131,7 @@ public class RegistrationFormApiTest {
     }
 
     @Test
-    @DisplayName("Registration with invalid captcha")
+    @DisplayName("Check registration with invalid captcha")
     public void testRegistrationWithInvalidCaptcha() {
         RegistrationForm registrationForm = new RegistrationForm(faker.internet().emailAddress(), faker.internet().password(), Utils.generateCaptcha());
 

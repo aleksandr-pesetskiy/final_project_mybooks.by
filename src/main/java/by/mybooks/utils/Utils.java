@@ -1,6 +1,5 @@
 package by.mybooks.utils;
 
-import by.mybooks.api.registrationForm.RegistrationForm;
 import com.github.javafaker.Faker;
 
 import static java.lang.String.format;

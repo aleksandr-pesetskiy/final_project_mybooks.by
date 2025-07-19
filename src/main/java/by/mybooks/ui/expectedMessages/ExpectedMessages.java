@@ -15,4 +15,5 @@ public class ExpectedMessages {
     public static final String NAME_BUTTON_REGISTRATION_CONFIRMATION = "ЗАРЕГИСТРИРОВАТЬСЯ";
     public static final String TEXT_USER_AGREEMENT = "Пользовательское соглашение";
     public static final String TEXT_ALERT_EMPTY_EMAIL = "Поле reg email обязательно для заполнения";
+    public static final String TEXT_ALERT_EXISTS = "Такое значение поля reg email уже существует";
 }
