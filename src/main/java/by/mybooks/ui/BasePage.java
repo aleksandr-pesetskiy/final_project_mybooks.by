@@ -10,8 +10,8 @@ import by.mybooks.ui.pages.authorizationForm.AuthorizationFormLocator;
 
 public class BasePage {
 
-    protected final WebDriver driver = Driver.getDriver();
     protected final Logger logger = LogManager.getLogger(getClass());
+    protected final WebDriver driver = Driver.getDriver();
 
     public void open() {
         logger.info("Открытие главной страницы: {}", ExpectedMessages.HOME_PAGE);
