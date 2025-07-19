@@ -1,6 +1,8 @@
 package by.mybooks.ui;
 
 import by.mybooks.ui.expectedMessages.ExpectedMessages;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.*;
 import by.mybooks.ui.driver.Driver;
@@ -11,12 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 public class AuthorizationFormTest {
     public static final int DEFAULT_WAIT_OF_MILLISECONDS = 1000;
 
+    private final Logger logger = LogManager.getLogger(getClass());
     private AuthorizationFormPage authorizationFormPage;
 
     Faker faker = new Faker();
 
     @BeforeEach
     public void setUp() {
+        logger.info("Инициализация BasePage");
         new BasePage().open();
         authorizationFormPage = new AuthorizationFormPage();
     }
@@ -105,6 +109,7 @@ public class AuthorizationFormTest {
 
     @AfterEach
     public void tearDown() {
+        logger.info("Закрытие BasePage");
         Driver.quit();
     }
 }
