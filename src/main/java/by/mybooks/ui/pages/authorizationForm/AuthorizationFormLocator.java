@@ -4,7 +4,6 @@ public class AuthorizationFormLocator {
 
     public static final String BUTTON_ACCEPT_COOKIE = "//div[@id='ck-pup-default']//button[@class='pup-ck__button pup-ck__button--primary']";
     public static final String BUTTON_CABINET = "//span[@class='ok-auth__btn']";
-    public static final String WINDOW_MODAL_AUTHORIZATION = "//div[@class='ok-enter -form-theme-mini -state-show']";
     public static final String FIELD_LOGIN_PLACEHOLDER = "//div[@id='enter']//div[@class='ok-form-row -input-special data-input-check']/div";
     public static final String FIELD_PASSWORD_PLACEHOLDER = "//div[@id='enter']//div[@class='ok-form-row -input-special data-input-check']/span/div";
     public static final String BUTTON_LOGIN = "//div[@id='enter']//button[@class='ok-btn -btn-theme-action -width-full']";
