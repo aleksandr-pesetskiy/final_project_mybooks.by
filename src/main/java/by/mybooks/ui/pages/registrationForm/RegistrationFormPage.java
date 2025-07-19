@@ -7,7 +7,7 @@ public class RegistrationFormPage extends BasePage {
 
     public void clickButtonRegistration() {
         logger.info("Клик по кнопке для перехода на регистрацию");
-        driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN_CONFIRMATION)).click();
+        driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_REGISTRATION)).click();
     }
 
     public String getPlaceholderLoginText() {
@@ -19,6 +19,12 @@ public class RegistrationFormPage extends BasePage {
     public String getPlaceholderPasswordText() {
         String placeholderText = driver.findElement(By.xpath(RegistrationFormLocator.FIELD_PASSWORD_PLACEHOLDER)).getText();
         logger.info("Текст placeholder для password: {}", placeholderText);
+        return placeholderText;
+    }
+
+    public String getPlaceholderCaptchaText() {
+        String placeholderText = driver.findElement(By.xpath(RegistrationFormLocator.FIELD_CAPTCHA_PLACEHOLDER)).getText();
+        logger.info("Текст placeholder для captcha: {}", placeholderText);
         return placeholderText;
     }
 
@@ -34,15 +40,21 @@ public class RegistrationFormPage extends BasePage {
         return buttonName;
     }
 
-    public String getButtonLoginConfirmationText() {
-        String buttonName = driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN_CONFIRMATION)).getText();
-        logger.info("Название кнопки завершения входа: {}", buttonName);
+    public String getButtonRegistrationConfirmationText() {
+        String buttonName = driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_REGISTRATION_CONFIRMATION)).getText();
+        logger.info("Название кнопки завершения регистрации: {}", buttonName);
         return buttonName;
     }
 
-    public void clickButtonLoginConfirmation() {
-        logger.info("Клик по кнопке Вход");
-        driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN_CONFIRMATION)).click();
+    public String getNameUserAgreement() {
+        String nameUserAgreement = driver.findElement(By.xpath(RegistrationFormLocator.USER_AGREEMENT)).getAttribute("title");
+        logger.info("Название документа: {}", nameUserAgreement);
+        return nameUserAgreement;
+    }
+
+    public void clickButtonRegistrationConfirmation() {
+        logger.info("Клик по кнопке Зарегистрироваться");
+        driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_REGISTRATION_CONFIRMATION)).click();
     }
 
     public void inputFieldLogin(String login) {
@@ -55,21 +67,8 @@ public class RegistrationFormPage extends BasePage {
         driver.findElement(By.xpath(RegistrationFormLocator.FIELD_INPUT_PASSWORD)).sendKeys(password);
     }
 
-    public String getColorLineLoginOK() {
-        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_LOGIN_OK)).getCssValue("color");
-        logger.info("Цвет линии под email без ошибки в RGB: {}", colorLine);
-        return colorLine;
-    }
-
-    public String getColorLineLoginError() {
-        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_LOGIN_ERROR)).getCssValue("color");
-        logger.info("Цвет линии под email с ошибкой в RGB: {}", colorLine);
-        return colorLine;
-    }
-
-    public String getColorLinePassword() {
-        String colorLine = driver.findElement(By.xpath(RegistrationFormLocator.LINE_UNDER_PASSWORD)).getCssValue("color");
-        logger.info("Цвет линии под password в RGB: {}", colorLine);
-        return colorLine;
+    public void inputFieldCaptcha(String captcha) {
+        logger.info("Ввод captcha: {}", captcha);
+        driver.findElement(By.xpath(RegistrationFormLocator.FIELD_INPUT_CAPTCHA)).sendKeys(captcha);
     }
 }
