@@ -24,17 +24,19 @@ public class RegistrationFormTest {
         logger.info("Инициализация BasePage");
         new BasePage().open();
         registrationFormPage = new RegistrationFormPage();
-        registrationFormPage.clickLinkRegistration();
+        registrationFormPage.clickButtonRegistration();
     }
 
     @Test
-    @DisplayName("Check authorization form")
+    @DisplayName("Check registration form")
     public void testCheckAuthorizationForm() {
         assertAll(
+                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_EMAIL, registrationFormPage.getPlaceholderLoginText(), "Placeholder login match"),
                 () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_PASSWORD, registrationFormPage.getPlaceholderPasswordText(), "Placeholder password match"),
                 () -> Assertions.assertEquals(ExpectedMessages.NAME_BUTTON_LOGIN, registrationFormPage.getButtonLoginText(), "Name button match"),
-                () -> Assertions.assertEquals(ExpectedMessages.NAME_BUTTON_REGISTRATION, registrationFormPage.getLinkRegistrationText(), "Name button match")
+                () -> Assertions.assertEquals(ExpectedMessages.NAME_BUTTON_REGISTRATION, registrationFormPage.getButtonRegistrationText(), "Name button match"),
+                () -> Assertions.assertEquals(ExpectedMessages.NAME_BUTTON_LOGIN_CONFIRMATION, registrationFormPage.getButtonLoginConfirmationText(), "Name button match")
         );
     }
 
@@ -45,7 +47,7 @@ public class RegistrationFormTest {
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLineLoginOK(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLinePassword(), "Color element match"),
                 () -> registrationFormPage.inputFieldPassword(faker.internet().password()),
-                () -> registrationFormPage.clickButtonLogin(),
+                () -> registrationFormPage.clickButtonLoginConfirmation(),
                 () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineLoginError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLinePassword(), "Color element match")

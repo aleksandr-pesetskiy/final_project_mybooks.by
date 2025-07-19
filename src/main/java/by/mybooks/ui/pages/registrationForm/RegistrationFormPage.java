@@ -5,9 +5,9 @@ import org.openqa.selenium.By;
 
 public class RegistrationFormPage extends BasePage {
 
-    public void clickLinkRegistration() {
-        logger.info("Клик по ссылке Регистрация");
-        driver.findElement(By.xpath(RegistrationFormLocator.LINK_REGISTRATION)).click();
+    public void clickButtonRegistration() {
+        logger.info("Клик по кнопке для перехода на регистрацию");
+        driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN_CONFIRMATION)).click();
     }
 
     public String getPlaceholderLoginText() {
@@ -24,19 +24,25 @@ public class RegistrationFormPage extends BasePage {
 
     public String getButtonLoginText() {
         String buttonName = driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN)).getText();
-        logger.info("Название кнопки для входа: {}", buttonName);
+        logger.info("Название кнопки перехода для входа: {}", buttonName);
         return buttonName;
     }
 
-    public String getLinkRegistrationText() {
-        String buttonName = driver.findElement(By.xpath(RegistrationFormLocator.TITLE_LINK_REGISTRATION)).getText();
-        logger.info("Название кнопки для регистрации: {}", buttonName);
+    public String getButtonRegistrationText() {
+        String buttonName = driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_REGISTRATION)).getText();
+        logger.info("Название кнопки перехода для регистрации: {}", buttonName);
         return buttonName;
     }
 
-    public void clickButtonLogin() {
+    public String getButtonLoginConfirmationText() {
+        String buttonName = driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN_CONFIRMATION)).getText();
+        logger.info("Название кнопки завершения входа: {}", buttonName);
+        return buttonName;
+    }
+
+    public void clickButtonLoginConfirmation() {
         logger.info("Клик по кнопке Вход");
-        driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN)).click();
+        driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_LOGIN_CONFIRMATION)).click();
     }
 
     public void inputFieldLogin(String login) {
