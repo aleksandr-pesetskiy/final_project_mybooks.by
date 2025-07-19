@@ -1,6 +1,7 @@
 package by.mybooks.ui.pages.registrationForm;
 
 import by.mybooks.ui.pages.basePage.BasePage;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 public class RegistrationFormPage extends BasePage {
@@ -70,5 +71,14 @@ public class RegistrationFormPage extends BasePage {
     public void inputFieldCaptcha(String captcha) {
         logger.info("Ввод captcha: {}", captcha);
         driver.findElement(By.xpath(RegistrationFormLocator.FIELD_INPUT_CAPTCHA)).sendKeys(captcha);
+    }
+
+    public String getAlertText() {
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        logger.info("Текст alert: {}", alertText);
+        alert.accept();
+        logger.info("Подтверждение alert");
+        return alertText;
     }
 }
