@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import by.mybooks.ui.driver.Driver;
-import by.mybooks.ui.pages.authorizationForm.AuthorizationFormLocator;
 
 public class BasePage {
 
