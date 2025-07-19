@@ -11,7 +11,7 @@ import by.mybooks.ui.driver.Driver;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-public class RegistrationFormTestUi {
+public class RegistrationFormUiTest {
     public static final int DEFAULT_WAIT_OF_MILLISECONDS = 1000;
 
     private final Logger logger = LogManager.getLogger(getClass());
