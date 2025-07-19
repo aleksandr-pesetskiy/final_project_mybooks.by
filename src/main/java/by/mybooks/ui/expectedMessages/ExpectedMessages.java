@@ -6,8 +6,10 @@ public class ExpectedMessages {
     public static final String EMAIL_TRUE = "test@mail.ru";
     public static final String COLOR_ELEMENT_WHITE = "rgba(255, 255, 255, 1)";
     public static final String COLOR_ELEMENT_RED = "rgba(255, 0, 0, 1)";
-    public static final String DEFAULT_TEXT_PLACEHOLDER_EMAIL = "Ваш email";
-    public static final String DEFAULT_TEXT_PLACEHOLDER_PASSWORD = "Пароль";
-    public static final String DEFAULT_NAME_BUTTON_LOGIN = "ВХОД";
-    public static final String DEFAULT_NAME_BUTTON_REGISTRATION = "РЕГИСТРАЦИЯ";
+    public static final String TEXT_PLACEHOLDER_EMAIL = "Ваш email";
+    public static final String TEXT_PLACEHOLDER_PASSWORD = "Пароль";
+    public static final String NAME_BUTTON_LOGIN = "ВХОД";
+    public static final String NAME_BUTTON_REGISTRATION = "РЕГИСТРАЦИЯ";
+    public static final String NAME_BUTTON_LOGIN_CONFIRMATION = "ВХОД";
+    public static final String NAME_BUTTON_REGISTRATION_CONFIRMATION = "Зарегистрироваться";
 }

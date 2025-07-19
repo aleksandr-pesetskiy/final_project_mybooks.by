@@ -5,6 +5,11 @@ import org.openqa.selenium.By;
 
 public class RegistrationFormPage extends BasePage {
 
+    public void clickLinkRegistration() {
+        logger.info("Клик по ссылке Регистрация");
+        driver.findElement(By.xpath(RegistrationFormLocator.LINK_REGISTRATION)).click();
+    }
+
     public String getPlaceholderLoginText() {
         String placeholderText = driver.findElement(By.xpath(RegistrationFormLocator.FIELD_LOGIN_PLACEHOLDER)).getText();
         logger.info("Текст placeholder для email: {}", placeholderText);

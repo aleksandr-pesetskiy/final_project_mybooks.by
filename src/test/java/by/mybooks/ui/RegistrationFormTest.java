@@ -24,16 +24,17 @@ public class RegistrationFormTest {
         logger.info("Инициализация BasePage");
         new BasePage().open();
         registrationFormPage = new RegistrationFormPage();
+        registrationFormPage.clickLinkRegistration();
     }
 
     @Test
     @DisplayName("Check authorization form")
     public void testCheckAuthorizationForm() {
         assertAll(
-                () -> Assertions.assertEquals(ExpectedMessages.DEFAULT_TEXT_PLACEHOLDER_EMAIL, registrationFormPage.getPlaceholderLoginText(), "Placeholder login match"),
-                () -> Assertions.assertEquals(ExpectedMessages.DEFAULT_TEXT_PLACEHOLDER_PASSWORD, registrationFormPage.getPlaceholderPasswordText(), "Placeholder password match"),
-                () -> Assertions.assertEquals(ExpectedMessages.DEFAULT_NAME_BUTTON_LOGIN, registrationFormPage.getButtonLoginText(), "Name button match"),
-                () -> Assertions.assertEquals(ExpectedMessages.DEFAULT_NAME_BUTTON_REGISTRATION, registrationFormPage.getLinkRegistrationText(), "Name button match")
+                () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_EMAIL, registrationFormPage.getPlaceholderLoginText(), "Placeholder login match"),
+                () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_PASSWORD, registrationFormPage.getPlaceholderPasswordText(), "Placeholder password match"),
+                () -> Assertions.assertEquals(ExpectedMessages.NAME_BUTTON_LOGIN, registrationFormPage.getButtonLoginText(), "Name button match"),
+                () -> Assertions.assertEquals(ExpectedMessages.NAME_BUTTON_REGISTRATION, registrationFormPage.getLinkRegistrationText(), "Name button match")
         );
     }
 

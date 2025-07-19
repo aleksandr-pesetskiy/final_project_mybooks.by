@@ -19,19 +19,25 @@ public class AuthorizationFormPage extends BasePage {
 
     public String getButtonLoginText() {
         String buttonName = driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_LOGIN)).getText();
-        logger.info("Название кнопки для входа: {}", buttonName);
+        logger.info("Название кнопки перехода для входа: {}", buttonName);
         return buttonName;
     }
 
-    public String getLinkRegistrationText() {
-        String buttonName = driver.findElement(By.xpath(AuthorizationFormLocator.TITLE_LINK_REGISTRATION)).getText();
-        logger.info("Название кнопки для регистрации: {}", buttonName);
+    public String getButtonRegistrationText() {
+        String buttonName = driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_REGISTRATION)).getText();
+        logger.info("Название кнопки перехода для регистрации: {}", buttonName);
         return buttonName;
     }
 
-    public void clickButtonLogin() {
+    public String getButtonLoginConfirmationText() {
+        String buttonName = driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_LOGIN_CONFIRMATION)).getText();
+        logger.info("Название кнопки завершения входа: {}", buttonName);
+        return buttonName;
+    }
+
+    public void clickButtonLoginConfirmation() {
         logger.info("Клик по кнопке Вход");
-        driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_LOGIN)).click();
+        driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_LOGIN_CONFIRMATION)).click();
     }
 
     public void inputFieldLogin(String login) {
