@@ -3,11 +3,14 @@ package by.mybooks.api.registrationForm;
 import by.mybooks.api.expectedMessages.ExpectedMessages;
 import by.mybooks.utils.Utils;
 import io.restassured.response.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static io.restassured.RestAssured.given;
 
 public class RegistrationForm {
 
+    private final Logger logger = LogManager.getLogger(getClass());
     private final Response response;
 
     public RegistrationForm(String email, String password, String captcha) {
@@ -45,22 +48,32 @@ public class RegistrationForm {
     }
 
     public int getStatusCode() {
-        return response.getStatusCode();
+        int statusCode = response.getStatusCode();
+        logger.info("Статус код: {}", statusCode);
+        return statusCode;
     }
 
     public String getMessageText() {
-        return response.path("message");
+        String messageText = response.path("message");
+        logger.info("Текст сообщения: {}", messageText);
+        return messageText;
     }
 
     public String getContextErrorRegEmail() {
-        return response.path("errors.reg_email[0]");
+        String contextErrorRegEmail = response.path("errors.reg_email[0]");
+        logger.info("Сообщение context по ключу reg_email: {}", contextErrorRegEmail);
+        return contextErrorRegEmail;
     }
 
     public String getContextErrorRegPassword() {
-        return response.path("errors.reg_password[0]");
+        String contextErrorRegPassword = response.path("errors.reg_password[0]");
+        logger.info("Сообщение context по ключу reg_password: {}", contextErrorRegPassword);
+        return contextErrorRegPassword;
     }
 
     public String getContextErrorCaptcha() {
-        return response.path("errors.captcha[0]");
+        String contextErrorCaptcha = response.path("errors.captcha[0]");
+        logger.info("Сообщение context по ключу captcha: {}", contextErrorCaptcha);
+        return contextErrorCaptcha;
     }
 }

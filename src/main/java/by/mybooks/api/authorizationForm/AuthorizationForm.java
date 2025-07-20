@@ -3,11 +3,14 @@ package by.mybooks.api.authorizationForm;
 import by.mybooks.api.expectedMessages.ExpectedMessages;
 import by.mybooks.utils.Utils;
 import io.restassured.response.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static io.restassured.RestAssured.given;
 
 public class AuthorizationForm {
 
+    private final Logger logger = LogManager.getLogger(getClass());
     private final Response response;
 
     public AuthorizationForm(String email, String password) {
@@ -27,18 +30,26 @@ public class AuthorizationForm {
     }
 
     public int getStatusCode() {
-        return response.getStatusCode();
+        int statusCode = response.getStatusCode();
+        logger.info("Статус код: {}", statusCode);
+        return statusCode;
     }
 
     public String getMessageText() {
-        return response.path("message");
+        String messageText = response.path("message");
+        logger.info("Текст сообщения: {}", messageText);
+        return messageText;
     }
 
     public String getContextErrorEmail() {
-        return response.path("errors.email[0]");
+        String contextErrorEmail = response.path("errors.email[0]");
+        logger.info("Сообщение context по ключу email: {}", contextErrorEmail);
+        return contextErrorEmail;
     }
 
     public String getContextErrorPassword() {
-        return response.path("errors.password[0]");
+        String contextErrorPassword = response.path("errors.password[0]");
+        logger.info("Сообщение context по ключу password: {}", contextErrorPassword);
+        return contextErrorPassword;
     }
 }
