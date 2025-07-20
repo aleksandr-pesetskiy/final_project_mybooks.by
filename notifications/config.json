@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "taf-finalProject25",
+    "environment": "some env",
+    "comment": "Отчет",
+    "reportLink": "",
+    "language": "ru",
+    "allureFolder": "target/allure-results",
+    "enableChart": true,
+    "durationFormat": "HH:mm:ss.SSS"
+  },
+  "telegram": {
+    "token": "7956755785:AAGJsZ5lniqoFsSl1XRpDhXjloWkb6bFq0c",
+    "chat": "2725018174",
+    "replyTo": ""
+  }
+}
