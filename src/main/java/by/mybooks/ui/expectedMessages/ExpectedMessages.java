@@ -6,6 +6,8 @@ public class ExpectedMessages {
     public static final String EMAIL_TRUE = "test@mail.ru";
     public static final String COLOR_ELEMENT_WHITE = "rgba(255, 255, 255, 1)";
     public static final String COLOR_ELEMENT_RED = "rgba(255, 0, 0, 1)";
+    public static final String COLOR_KEY = "rgba(236, 0, 42, 1)";
+    public static final String COLOR_HEADER = "rgba(51, 51, 51, 1)";
     public static final String TEXT_PLACEHOLDER_EMAIL = "Ваш email";
     public static final String TEXT_PLACEHOLDER_PASSWORD = "Пароль";
     public static final String TEXT_PLACEHOLDER_CAPTCHA = "Введите число с картинки";
@@ -16,4 +18,6 @@ public class ExpectedMessages {
     public static final String TEXT_USER_AGREEMENT = "Пользовательское соглашение";
     public static final String TEXT_ALERT_EMPTY_EMAIL = "Поле reg email обязательно для заполнения";
     public static final String TEXT_ALERT_EXISTS = "Такое значение поля reg email уже существует";
+    public static final String WORD_SEARCH = "Java";
+    public static final String COUNT = "1";
 }
