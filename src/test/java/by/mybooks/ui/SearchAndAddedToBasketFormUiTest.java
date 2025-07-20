@@ -11,6 +11,7 @@ import by.mybooks.ui.driver.Driver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SearchAndAddedToBasketFormUiTest {
+
     public static final int DEFAULT_WAIT_OF_MILLISECONDS = 2000;
 
     private final Logger logger = LogManager.getLogger(getClass());
