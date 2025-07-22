@@ -1,6 +1,7 @@
 package by.mybooks.ui.pages.basePage;
 
 import by.mybooks.ui.expectedMessages.ExpectedMessages;
+import by.mybooks.ui.pages.authorizationForm.AuthorizationFormLocator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -33,5 +34,10 @@ public class BasePage {
     public void clickButtonCabinet() {
         logger.info("Открытие формы авторизации");
         driver.findElement(By.xpath(BasePageLocator.BUTTON_CABINET)).click();
+    }
+
+    public void waitTime(int waitTimeMilliseconds) throws InterruptedException {
+        logger.info("Ожидание: {}", waitTimeMilliseconds);
+        Thread.sleep(waitTimeMilliseconds);
     }
 }

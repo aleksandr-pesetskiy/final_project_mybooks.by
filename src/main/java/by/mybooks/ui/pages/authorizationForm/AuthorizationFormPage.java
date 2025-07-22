@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 
 public class AuthorizationFormPage extends BasePage {
 
+    public static final int DEFAULT_WAIT_OF_MILLISECONDS = 1000;
+
     public String getPlaceholderLoginText() {
         String placeholderText = driver.findElement(By.xpath(AuthorizationFormLocator.FIELD_LOGIN_PLACEHOLDER)).getText();
         logger.info("Текст placeholder для email: {}", placeholderText);
@@ -35,9 +37,10 @@ public class AuthorizationFormPage extends BasePage {
         return buttonName;
     }
 
-    public void clickButtonLoginConfirmation() {
+    public void clickButtonLoginConfirmation() throws InterruptedException {
         logger.info("Клик по кнопке Вход");
         driver.findElement(By.xpath(AuthorizationFormLocator.BUTTON_LOGIN_CONFIRMATION)).click();
+        waitTime(DEFAULT_WAIT_OF_MILLISECONDS);
     }
 
     public void inputFieldLogin(String login) {

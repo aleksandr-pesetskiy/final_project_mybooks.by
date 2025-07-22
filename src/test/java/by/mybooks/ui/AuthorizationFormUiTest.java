@@ -48,7 +48,6 @@ public class AuthorizationFormUiTest {
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLinePassword(), "Color element match"),
                 () -> authorizationFormPage.inputFieldPassword(faker.internet().password()),
                 () -> authorizationFormPage.clickButtonLoginConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, authorizationFormPage.getColorLineLoginError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLinePassword(), "Color element match")
         );
@@ -62,7 +61,6 @@ public class AuthorizationFormUiTest {
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLinePassword(), "Color element match"),
                 () -> authorizationFormPage.inputFieldLogin(faker.internet().emailAddress()),
                 () -> authorizationFormPage.clickButtonLoginConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLineLoginOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, authorizationFormPage.getColorLinePassword(), "Color element match")
         );
@@ -75,7 +73,6 @@ public class AuthorizationFormUiTest {
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLineLoginOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLinePassword(), "Color element match"),
                 () -> authorizationFormPage.clickButtonLoginConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, authorizationFormPage.getColorLineLoginError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, authorizationFormPage.getColorLinePassword(), "Color element match")
         );
@@ -90,7 +87,6 @@ public class AuthorizationFormUiTest {
                 () -> authorizationFormPage.inputFieldLogin(faker.internet().emailAddress()),
                 () -> authorizationFormPage.inputFieldPassword(faker.internet().password()),
                 () -> authorizationFormPage.clickButtonLoginConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, authorizationFormPage.getColorLineLoginError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLinePassword(), "Color element match")
         );
@@ -105,7 +101,6 @@ public class AuthorizationFormUiTest {
                 () -> authorizationFormPage.inputFieldLogin(ExpectedMessages.EMAIL_TRUE),
                 () -> authorizationFormPage.inputFieldPassword(faker.internet().password()),
                 () -> authorizationFormPage.clickButtonLoginConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, authorizationFormPage.getColorLineLoginOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, authorizationFormPage.getColorLinePassword(), "Color element match")
         );
