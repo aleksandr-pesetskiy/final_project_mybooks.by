@@ -13,8 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AuthorizationFormUiTest {
 
-    public static final int DEFAULT_WAIT_OF_MILLISECONDS = 1000;
-
     private final Logger logger = LogManager.getLogger(getClass());
     private AuthorizationFormPage authorizationFormPage;
 
@@ -31,7 +29,6 @@ public class AuthorizationFormUiTest {
     @DisplayName("Check authorization form")
     public void testAuthorizationForm() {
         assertAll(
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_EMAIL, authorizationFormPage.getPlaceholderLoginText(), "Placeholder login match"),
                 () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_PASSWORD, authorizationFormPage.getPlaceholderPasswordText(), "Placeholder password match"),
                 () -> Assertions.assertEquals(ExpectedMessages.NAME_BUTTON_LOGIN, authorizationFormPage.getButtonLoginText(), "Name button match"),

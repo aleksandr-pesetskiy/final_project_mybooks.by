@@ -6,12 +6,15 @@ import org.openqa.selenium.By;
 
 public class RegistrationFormPage extends BasePage {
 
+    public static final int DEFAULT_WAIT_OF_MILLISECONDS = 1000;
+
     public void clickButtonRegistration() {
         logger.info("Клик по кнопке для перехода на регистрацию");
         driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_REGISTRATION)).click();
     }
 
-    public String getPlaceholderLoginText() {
+    public String getPlaceholderLoginText() throws InterruptedException {
+        waitTime(DEFAULT_WAIT_OF_MILLISECONDS);
         String placeholderText = driver.findElement(By.xpath(RegistrationFormLocator.FIELD_LOGIN_PLACEHOLDER)).getText();
         logger.info("Текст placeholder для email: {}", placeholderText);
         return placeholderText;
@@ -53,9 +56,10 @@ public class RegistrationFormPage extends BasePage {
         return nameUserAgreement;
     }
 
-    public void clickButtonRegistrationConfirmation() {
+    public void clickButtonRegistrationConfirmation() throws InterruptedException {
         logger.info("Клик по кнопке Зарегистрироваться");
         driver.findElement(By.xpath(RegistrationFormLocator.BUTTON_REGISTRATION_CONFIRMATION)).click();
+        waitTime(DEFAULT_WAIT_OF_MILLISECONDS);
     }
 
     public void inputFieldLogin(String login) {
@@ -73,12 +77,13 @@ public class RegistrationFormPage extends BasePage {
         driver.findElement(By.xpath(RegistrationFormLocator.FIELD_INPUT_CAPTCHA)).sendKeys(captcha);
     }
 
-    public String getAlertText() {
+    public String getAlertText() throws InterruptedException {
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
         logger.info("Текст alert: {}", alertText);
         alert.accept();
         logger.info("Подтверждение alert");
+        waitTime(DEFAULT_WAIT_OF_MILLISECONDS);
         return alertText;
     }
 

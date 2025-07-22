@@ -7,7 +7,8 @@ public class AuthorizationFormPage extends BasePage {
 
     public static final int DEFAULT_WAIT_OF_MILLISECONDS = 1000;
 
-    public String getPlaceholderLoginText() {
+    public String getPlaceholderLoginText() throws InterruptedException {
+        waitTime(DEFAULT_WAIT_OF_MILLISECONDS);
         String placeholderText = driver.findElement(By.xpath(AuthorizationFormLocator.FIELD_LOGIN_PLACEHOLDER)).getText();
         logger.info("Текст placeholder для email: {}", placeholderText);
         return placeholderText;

@@ -14,8 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RegistrationFormUiTest {
 
-    public static final int DEFAULT_WAIT_OF_MILLISECONDS = 1000;
-
     private final Logger logger = LogManager.getLogger(getClass());
     private RegistrationFormPage registrationFormPage;
 
@@ -35,7 +33,6 @@ public class RegistrationFormUiTest {
     @DisplayName("Check registration form")
     public void testCheckRegistrationForm() {
         assertAll(
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_EMAIL, registrationFormPage.getPlaceholderLoginText(), "Placeholder login match"),
                 () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_PASSWORD, registrationFormPage.getPlaceholderPasswordText(), "Placeholder password match"),
                 () -> Assertions.assertEquals(ExpectedMessages.TEXT_PLACEHOLDER_CAPTCHA, registrationFormPage.getPlaceholderCaptchaText(), "Placeholder captcha match"),
@@ -53,9 +50,7 @@ public class RegistrationFormUiTest {
                 () -> registrationFormPage.inputFieldPassword(faker.internet().password()),
                 () -> registrationFormPage.inputFieldCaptcha(Utils.generateCaptcha()),
                 () -> registrationFormPage.clickButtonRegistrationConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> assertTrue(registrationFormPage.getAlertText().contains(ExpectedMessages.TEXT_ALERT_EMPTY_EMAIL), "Alert message match"),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineLoginError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLinePasswordOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineCaptchaError(), "Color element match")
@@ -72,7 +67,6 @@ public class RegistrationFormUiTest {
                 () -> registrationFormPage.inputFieldLogin(faker.internet().emailAddress()),
                 () -> registrationFormPage.inputFieldCaptcha(Utils.generateCaptcha()),
                 () -> registrationFormPage.clickButtonRegistrationConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLineLoginOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLinePasswordError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineCaptchaError(), "Color element match")
@@ -84,9 +78,7 @@ public class RegistrationFormUiTest {
     public void testRegistrationWithEmptyFields() {
         assertAll(
                 () -> registrationFormPage.clickButtonRegistrationConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> assertTrue(registrationFormPage.getAlertText().contains(ExpectedMessages.TEXT_ALERT_EMPTY_EMAIL), "Alert message match"),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineLoginError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLinePasswordError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineCaptchaError(), "Color element match")
@@ -104,7 +96,6 @@ public class RegistrationFormUiTest {
                 () -> registrationFormPage.inputFieldPassword(faker.internet().password()),
                 () -> registrationFormPage.inputFieldCaptcha(Utils.generateCaptcha()),
                 () -> registrationFormPage.clickButtonRegistrationConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLineLoginOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLinePasswordOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineCaptchaError(), "Color element match")
@@ -119,9 +110,7 @@ public class RegistrationFormUiTest {
                 () -> registrationFormPage.inputFieldPassword(faker.internet().password()),
                 () -> registrationFormPage.inputFieldCaptcha(Utils.generateCaptcha()),
                 () -> registrationFormPage.clickButtonRegistrationConfirmation(),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> assertTrue(registrationFormPage.getAlertText().contains(ExpectedMessages.TEXT_ALERT_EXISTS), "Alert message match"),
-                () -> Thread.sleep(DEFAULT_WAIT_OF_MILLISECONDS),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineLoginError(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_WHITE, registrationFormPage.getColorLinePasswordOk(), "Color element match"),
                 () -> Assertions.assertEquals(ExpectedMessages.COLOR_ELEMENT_RED, registrationFormPage.getColorLineCaptchaError(), "Color element match")
