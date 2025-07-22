@@ -3,7 +3,6 @@ package by.mybooks.api;
 import by.mybooks.api.expectedMessages.ExpectedMessages;
 import by.mybooks.api.authorizationForm.AuthorizationForm;
 import by.mybooks.utils.Utils;
-import com.github.javafaker.Faker;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,12 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AuthorizationFormApiTest {
 
-    Faker faker = new Faker();
-
     @Test
     @DisplayName("Check authorization with wrong email")
     public void testLAuthorizationWithWrongEmail() {
-        AuthorizationForm authorizationForm = new AuthorizationForm(faker.internet().emailAddress(), faker.internet().password());
+        AuthorizationForm authorizationForm = new AuthorizationForm(Utils.generateEmailAddress(), Utils.generatePassword());
 
         assertAll(
                 () -> assertEquals(HttpStatus.SC_UNPROCESSABLE_ENTITY, authorizationForm.getStatusCode(), "StatusCode should be 422"),
@@ -29,7 +26,7 @@ public class AuthorizationFormApiTest {
     @Test
     @DisplayName("Check authorization with wrong password")
     public void testAuthorizationWithWrongPassword() {
-        AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.EMAIL_TRUE, faker.internet().password());
+        AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.EMAIL_TRUE, Utils.generatePassword());
 
         assertAll(
                 () -> assertEquals(HttpStatus.SC_UNPROCESSABLE_ENTITY, authorizationForm.getStatusCode(), "StatusCode should be 422"),
@@ -41,7 +38,7 @@ public class AuthorizationFormApiTest {
     @Test
     @DisplayName("Check authorization with large email")
     public void testAuthorizationWithLargeEmail() {
-        AuthorizationForm authorizationForm = new AuthorizationForm(Utils.generateLargeEmail(), faker.internet().password());
+        AuthorizationForm authorizationForm = new AuthorizationForm(Utils.generateLargeEmail(), Utils.generatePassword());
 
         assertAll(
                 () -> assertEquals(HttpStatus.SC_UNPROCESSABLE_ENTITY, authorizationForm.getStatusCode(), "StatusCode should be 422"),
@@ -65,7 +62,7 @@ public class AuthorizationFormApiTest {
     @Test
     @DisplayName("Check authorization with empty email")
     public void testAuthorizationWithEmptyEmail() {
-        AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.FIELD_EMPTY, faker.internet().password());
+        AuthorizationForm authorizationForm = new AuthorizationForm(ExpectedMessages.FIELD_EMPTY, Utils.generatePassword());
 
         assertAll(
                 () -> assertEquals(HttpStatus.SC_UNPROCESSABLE_ENTITY, authorizationForm.getStatusCode(), "StatusCode should be 422"),

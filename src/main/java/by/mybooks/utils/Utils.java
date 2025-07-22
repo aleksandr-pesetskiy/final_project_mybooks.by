@@ -18,6 +18,14 @@ public class Utils {
 
     static Faker faker = new Faker();
 
+    public static String generateEmailAddress() {
+        return faker.internet().emailAddress();
+    }
+
+    public static String generatePassword() {
+        return faker.internet().password();
+    }
+
     public static String generateLargeEmail() {
         return faker.regexify(format("[a-z]{%s}\\@[a-z]{%s}\\.[a-z]{%s}", LENGTH_NAME_EMAIL, LENGTH_DOMAIN_EMAIL_FIRST, LENGTH_DOMAIN_EMAIL_SECOND));
     }
