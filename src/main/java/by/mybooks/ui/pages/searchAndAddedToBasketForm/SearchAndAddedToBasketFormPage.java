@@ -6,14 +6,17 @@ import org.openqa.selenium.interactions.Actions;
 
 public class SearchAndAddedToBasketFormPage extends BasePage {
 
+    public static final int DEFAULT_WAIT_OF_MILLISECONDS = 2000;
+
     public void inputFieldSearch(String searchWord) {
         logger.info("Ввод слова поиска: {}", searchWord);
         driver.findElement(By.xpath(SearchAndAddedToBasketFormLocator.FIELD_SEARCH)).sendKeys(searchWord);
     }
 
-    public void clickButtonSearch() {
+    public void clickButtonSearch() throws InterruptedException {
         logger.info("Клик по кнопке поиска");
         driver.findElement(By.xpath(SearchAndAddedToBasketFormLocator.BUTTON_SEARCH)).click();
+        waitTime(DEFAULT_WAIT_OF_MILLISECONDS);
     }
 
     public String getTestInFieldSearch() {
@@ -46,9 +49,10 @@ public class SearchAndAddedToBasketFormPage extends BasePage {
         actions.moveToElement(driver.findElement(By.xpath(SearchAndAddedToBasketFormLocator.FORM_ADDED_BASKET))).perform();
     }
 
-    public void clickButtonToBasket() {
+    public void clickButtonToBasket() throws InterruptedException {
         logger.info("Клик по кнопке 'В корзину'");
         driver.findElement(By.xpath(SearchAndAddedToBasketFormLocator.BUTTON_TO_BASKET)).click();
+        waitTime(DEFAULT_WAIT_OF_MILLISECONDS);
     }
 
     public String getCountAddedBasket() {
